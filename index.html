@@ -1,38 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blogging Business Landing Page</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+  <title>Virtual Birthday Greeting Card</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .card-content h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card-content button {
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .confetti-item {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      animation: confetti 5s linear infinite;
+    }
+
+    @keyframes confetti {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    .firecracker {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .firecracker-item {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      animation: firecracker 2s linear infinite;
+    }
+
+    @keyframes firecracker {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+  </style>
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<h1>Welcome to our Blogging Business</h1>
-		<p>We are a team of passionate bloggers who share our love for writing and sharing our thoughts with the world. Our blog covers a wide range of topics, from technology to travel to food. We hope you enjoy reading our content and come back for more.</p>
-		<form>
-			<label for="email">Subscribe to our newsletter:</label>
-			<input type="email" id="email" name="email" required>
-			<button type="submit">Subscribe</button>
-		</form>
-		<h2>Our Latest Posts</h2>
-		<ul>
-			<li><a href="#">How to start a blog</a></li>
-			<li><a href="#">The benefits of blogging</a></li>
-			<li><a href="#">10 tips for successful blogging</a></li>
-		</ul>
-	</main>
-	<footer>
-		<p>&copy; 2023 Blogging Business. All rights reserved.</p>
-	</footer>
+  <div class="card">
+    <div class="card-content">
+      <h1>Happy Birthday!</h1>
+      <p>Wishing you a day filled with love, joy, and all of your favorite things!</p>
+      <button onclick="showConfetti()">Click to see the surprise!</button>
+    </div>
+    <div class="confetti">
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+      <div class="confetti-item"></div>
+    </div>
+    <div class="firecracker">
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+      <div class="firecracker-item"></div>
+    </div>
+  </div>
+
+  <script>
+    function showConfetti() {
+      const confetti = document.querySelector('.confetti');
+      const firecracker = document.querySelector('.firecracker');
+
+      confetti.style.display = 'block';
+      firecracker.style.display = 'block';
+
+      setTimeout(() => {
+        confetti.style.display = 'none';
+        firecracker.style.display = 'none';
+      }, 5000);
+    }
+  </script>
 </body>
 </html>
