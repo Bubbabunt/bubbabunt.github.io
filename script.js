@@ -1,50 +1,42 @@
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-}
+const decorations = document.querySelectorAll('.decoration');
 
-h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-}
+decorations.forEach(decoration => {
+    decoration.addEventListener('mousedown', dragStart);
+    decoration.addEventListener('touchstart', dragStart);
+});
 
-#message {
-    font-size: 1.5em;
-    margin-bottom: 2em;
-}
+function dragStart(event) {
+    const decoration = event.target;
+    
+    // Play feedback audio on drag
+    if (decoration.dataset.feedback) {
+        const audio = new Audio(decoration.dataset.feedback);
+        audio.play();
+    }
 
-#decorations {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-}
+    // Start visual animation
+    if (decoration.dataset.shakeDuration) {
+        decoration.classList.add('shake');
+        setTimeout(() => decoration.classList.remove('shake'), decoration.dataset.shakeDuration);
+    }
 
-.decoration {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    cursor: grab;
-}
+    if (decoration.dataset.rotateDuration) {
+        decoration.style.transform = `rotate(0deg)`;
+        decoration.animate({
+            transform: ['rotate(0deg)', 'rotate(360deg)'],
+        }, {
+            duration: parseInt(decoration.dataset.rotateDuration),
+            iterations: Infinity,
+        });
+    }
 
-.drag-target {
-    touch-action: none;
-}
-
-/* Animations for visual and haptic feedback */
-
-@keyframes shake {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(10deg) scale(1.1); }
-    100% { transform: rotate(0deg) scale(1); }
-}
-
-@keyframes confetti {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.5); }
-    100% { transform: scale(1); }
+    if (decoration.dataset.scaleDuration) {
+        decoration.style.transform = `scale(1)`;
+        decoration.animate({
+            transform: ['scale(1)', 'scale(1.5)', 'scale(1)'],
+        }, {
+            duration: parseInt(decoration.dataset.scaleDuration),
+            iterations: Infinity,
+        });
+    }
 }
