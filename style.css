@@ -1,10 +1,46 @@
-#container {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0095ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#greeting-card {
+    text-align: center;
+    margin-top: 30px;
 }
 
 h1 {
@@ -12,7 +48,7 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-#message {
+p {
     font-size: 1.5em;
     margin-bottom: 2em;
 }
@@ -21,7 +57,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 80%;
+    width: 100%;
 }
 
 .decoration {
@@ -29,22 +65,28 @@ h1 {
     height: 100px;
     margin: 10px;
     cursor: grab;
-}
-
-.drag-target {
     touch-action: none;
 }
 
-/* Animations for visual and haptic feedback */
+/* Animations and effects */
 
-@keyframes shake {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(10deg) scale(1.1); }
-    100% { transform: rotate(0deg) scale(1); }
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
 }
 
-@keyframes confetti {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.5); }
-    100% { transform: scale(1); }
+.rotate {
+    animation: rotate 1s linear infinite;
 }
+
+.confetti {
+    animation: confetti 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
