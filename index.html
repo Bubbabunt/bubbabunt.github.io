@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>e-Birthday Greetings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="greeting-card" id="greetingCard">
-    <h1>Happy Birthday!</h1>
-    <p>Wishing you a fantastic day filled with joy and celebration.</p>
-    <button id="confettiButton" onclick="addConfetti()">Click for Confetti</button>
-  </div>
-
-  <script src="script.js"></script>
+    <div id="container">
+        <h1>Happy <span id="name"></span>!</h1>
+        <p id="message">May your day be filled with joy and laughter.</p>
+        <div id="decorations">
+            <img src="cake.png" alt="Birthday cake" class="decoration drag-target" data-feedback="audio/pop.mp3" data-shake-duration="1000">
+            <img src="balloon.png" alt="Birthday balloon" class="decoration drag-target" data-feedback="audio/balloon.mp3" data-rotate-duration="500">
+            <img src="confetti.png" alt="Confetti" class="decoration drag-target" data-feedback="audio/confetti.mp3" data-scale-duration="2000">
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
