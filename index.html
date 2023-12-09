@@ -16,22 +16,31 @@
             <label for="message">Message:</label>
             <textarea id="message" rows="5"></textarea>
             <br>
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="classic">Classic</option>
+                <option value="balloons">Balloons</option>
+                <option value="confetti">Confetti</option>
+                <option value="custom">Custom</option>
+            </select>
+            <br>
             <button type="submit">Create Greeting</button>
         </form>
         <div id="greeting-card" style="display: none;">
-            <h1>Happy <span id="name"></span>!</h1>
-            <p id="message"></p>
+            <h1>Happy Birthday, <span id="name-display"></span>!</h1>
+            <p id="message-display"></p>
             <div id="decorations">
-                <div class="decoration" data-type="cake">
-                    <img src="images/cake.png" alt="Birthday cake">
-                </div>
-                <div class="decoration" data-type="balloon">
-                    <img src="images/balloon.png" alt="Birthday balloon">
-                </div>
-                <div class="decoration" data-type="confetti">
-                    <img src="images/confetti.png" alt="Confetti">
-                </div>
-                </div>
+                <div class="decoration bounce"></div>
+                <div class="decoration rotate"></div>
+                <div class="decoration confetti"></div>
+                <div class="decoration bounce"></div>
+                <div class="decoration rotate"></div>
+                <div class="decoration confetti"></div>
+                <div class="decoration bounce"></div>
+                <div class="decoration rotate"></div>
+                <div class="decoration confetti"></div>
+                <!-- Add even more decorations for a lively effect -->
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
