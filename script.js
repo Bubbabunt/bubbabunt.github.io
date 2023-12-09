@@ -1,11 +1,23 @@
-var wishes = [
-    "Wishing you a day filled with happiness and a year filled with joy!",
-    "May this birthday be filled with lots of love, laughter, and all your favorite people around!",
-    "May this birthday be the start of a year filled with wonderful moments and wonderful people!",
-    "May this birthday be the start of a new beginning, filled with new adventures and new experiences!",
-    "May this birthday be the start of a new chapter in your life, filled with new memories and new dreams!"
-];
+function animateGreetings() {
+  // Use anime.js for animations
+  anime({
+    targets: '.greeting-card',
+    translateX: [0, 50],
+    opacity: [1, 0],
+    easing: 'easeInOutQuad',
+    duration: 1000,
+    complete: function(anim) {
+      // Animation complete callback
+      document.getElementById('greetingCard').innerHTML = '<h1>🎉 Happy Birthday! 🎉</h1><p>Wishing you a fantastic day filled with joy and celebration.</p>';
+      anime({
+        targets: '.greeting-card',
+        translateX: [50, 0],
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 1000
+      });
+    }
+  });
 
-var randomWish = wishes[Math.floor(Math.random() * wishes.length)];
-
-document.getElementById('wish').innerHTML = randomWish;
+  // You can add more animations or effects as needed
+}
